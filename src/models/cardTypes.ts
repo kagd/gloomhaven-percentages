@@ -198,3 +198,14 @@ export const getInitialMonsterDeck = (): Partial<Record<CardTypeName, number>> =
   [CardTypeName.Miss]: 1,
   [CardTypeName.Double]: 1,
 });
+
+// Default player deck configuration
+export const getInitialPlayerDeck = (): Partial<Record<CardTypeName, number>> => ({
+  [CardTypeName.PlusZero]: 7,
+  [CardTypeName.PlusOne]: 7,
+  [CardTypeName.PlusTwo]: 1,
+  [CardTypeName.MinusOne]: 4,
+  [CardTypeName.Double]: 1,
+  [CardTypeName.Miss]: 1,
+  [CardTypeName.Curse]: 2,
+});

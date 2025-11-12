@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CardTypeName, DeckSetupProps } from '../models/types';
-import { cardTypeCategories, getInitialMonsterDeck } from '../models/cardTypes';
+import { cardTypeCategories } from '../models/cardTypes';
+import useStore from '../store/store';
 import TabNavigation from './TabNavigation';
 import CardCategory from './CardCategory';
 import ActionPanel from './ActionPanel';
 
 const DeckSetup: React.FC<DeckSetupProps> = ({ onSetupComplete }) => {
+  const { getDefaultPlayerCards, getDefaultMonsterCards } = useStore();
+
   const [playerCards, setPlayerCards] = useState<Record<CardTypeName, number>>(
-    {} as Record<CardTypeName, number>
+    getDefaultPlayerCards()
   );
   const [monsterCards, setMonsterCards] = useState<
     Record<CardTypeName, number>
-  >({} as Record<CardTypeName, number>);
+  >(getDefaultMonsterCards());
   const [currentTab, setCurrentTab] = useState<'player' | 'monster'>('player');
-
-  // Initialize monster deck with default configuration on mount
-  useEffect(() => {
-    const initialMonsterCards = getInitialMonsterDeck();
-    setMonsterCards((prev) => ({
-      ...prev,
-      ...initialMonsterCards,
-    }));
-  }, []);
 
   const currentCards = currentTab === 'player' ? playerCards : monsterCards;
   const setCurrentCards =
@@ -35,12 +29,13 @@ const DeckSetup: React.FC<DeckSetupProps> = ({ onSetupComplete }) => {
   };
 
   const resetMonsterDeck = () => {
-    const initialMonsterCards = getInitialMonsterDeck();
-    setMonsterCards({ ...initialMonsterCards } as Record<CardTypeName, number>);
+    const defaultMonsterCards = getDefaultMonsterCards();
+    setMonsterCards({ ...defaultMonsterCards } as Record<CardTypeName, number>);
   };
 
   const resetPlayerDeck = () => {
-    setPlayerCards({} as Record<CardTypeName, number>);
+    const defaultPlayerCards = getDefaultPlayerCards();
+    setPlayerCards({ ...defaultPlayerCards } as Record<CardTypeName, number>);
   };
 
   const resetCurrentDeck = () => {
@@ -52,6 +47,7 @@ const DeckSetup: React.FC<DeckSetupProps> = ({ onSetupComplete }) => {
   };
 
   const handleSubmit = () => {
+    // The onSetupComplete callback will call initializeDecks in the App component
     onSetupComplete(playerCards, monsterCards);
   };
 

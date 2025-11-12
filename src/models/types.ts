@@ -65,6 +65,8 @@ export interface StateActions {
   resetDeck: (deckType: DeckType) => void;
   resetAll: () => void;
   switchView: (view: DeckType) => void;
+  getDefaultPlayerCards: () => Record<CardTypeName, number>;
+  getDefaultMonsterCards: () => Record<CardTypeName, number>;
 }
 
 // Component prop interfaces

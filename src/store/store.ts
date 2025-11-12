@@ -1,20 +1,34 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { AppState, StateActions, DeckType, CardTypeName, Deck } from '../models/types';
+import { getInitialPlayerDeck, getInitialMonsterDeck } from '../models/cardTypes';
 
 interface Store extends AppState, StateActions {}
 
-const createInitialDeck = (type: DeckType): Deck => ({
-  type,
-  cards: {} as Record<CardTypeName, number>,
-  drawn: [],
-  initialCards: {} as Record<CardTypeName, number>,
-});
+const getDefaultPlayerCards = (): Record<CardTypeName, number> => {
+  const initialCards = getInitialPlayerDeck();
+  return initialCards as Record<CardTypeName, number>;
+};
+
+const getDefaultMonsterCards = (): Record<CardTypeName, number> => {
+  const initialCards = getInitialMonsterDeck();
+  return initialCards as Record<CardTypeName, number>;
+};
+
+const createInitialDeck = (type: DeckType): Deck => {
+  const cards = type === DeckType.Player ? getDefaultPlayerCards() : getDefaultMonsterCards();
+  return {
+    type,
+    cards: { ...cards },
+    drawn: [],
+    initialCards: { ...cards },
+  };
+};
 
 const useStore = create<Store>()(
   persist(
     (set, get) => ({
-      // Initial state
+      // Initial state - start with default decks but not initialized (still show setup)
       playerDeck: createInitialDeck(DeckType.Player),
       monsterDeck: createInitialDeck(DeckType.Monster),
       currentView: DeckType.Player,
@@ -110,12 +124,20 @@ const useStore = create<Store>()(
           playerDeck: createInitialDeck(DeckType.Player),
           monsterDeck: createInitialDeck(DeckType.Monster),
           currentView: DeckType.Player,
-          isInitialized: false,
+          isInitialized: false, // Go back to setup screen
         });
       },
 
       switchView: (view) => {
         set({ currentView: view });
+      },
+
+      getDefaultPlayerCards: () => {
+        return getDefaultPlayerCards();
+      },
+
+      getDefaultMonsterCards: () => {
+        return getDefaultMonsterCards();
       },
     }),
     {
