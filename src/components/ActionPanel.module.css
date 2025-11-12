@@ -1,0 +1,13 @@
+/* ActionPanel component-specific styles */
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.noCardsMessage {
+  color: #8b7355;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 500;
+}

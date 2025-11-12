@@ -40,14 +40,6 @@ const App: React.FC = () => {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-4xl">
-          <div className="text-center mb-6">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Gloomhaven Modifier Card Tracker
-            </h1>
-            <p className="text-lg text-gray-600">
-              Set up your player and monster decks to start tracking percentages
-            </p>
-          </div>
           <DeckSetup onSetupComplete={initializeDecks} />
         </div>
       </div>
@@ -67,7 +59,6 @@ const App: React.FC = () => {
           <DeckView
             deck={currentDeck}
             onDrawCard={handleDrawCard}
-            onReturnCard={handleReturnCard}
             onResetDeck={handleResetDeck}
           />
 

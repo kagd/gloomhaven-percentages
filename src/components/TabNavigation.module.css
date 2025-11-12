@@ -1,0 +1,37 @@
+/* TabNavigation component-specific styles */
+
+.tabNavigation {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 4px solid transparent;
+  transition: all 0.3s ease;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+}
+
+.tabButton.active {
+  border-bottom-color: #c5975a;
+  color: #c5975a;
+  background: linear-gradient(to bottom, transparent, rgba(197, 151, 90, 0.2));
+}
+
+.tabButton.inactive {
+  color: #8b7355;
+}
+
+.tabButton.inactive:hover {
+  color: #c5975a;
+  background: linear-gradient(to bottom, transparent, rgba(197, 151, 90, 0.1));
+}

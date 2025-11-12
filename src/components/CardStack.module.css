@@ -1,0 +1,100 @@
+/* CardStack component-specific styles */
+
+.cardStack {
+  padding: 1rem;
+  text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cardStack:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+}
+
+.cardStack.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cardStack.disabled:hover {
+  transform: none;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cardIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.cardIcon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.cardTitle {
+  font-weight: 500;
+  color: #e8d5b7;
+}
+
+.cardCount {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #a68b5b;
+}
+
+.percentageSection {
+  text-align: right;
+}
+
+.percentageValue {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+.percentageLabel {
+  font-size: 0.75rem;
+  color: #8b7355;
+}
+
+.progressBar {
+  width: 100%;
+  background-color: #e5e7eb;
+  border-radius: 9999px;
+  height: 0.5rem;
+}
+
+.progressFill {
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.drawInstruction {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.drawInstruction span {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #a68b5b;
+}

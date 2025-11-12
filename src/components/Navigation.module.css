@@ -1,0 +1,78 @@
+/* Navigation component-specific styles */
+
+.navigation {
+  background: linear-gradient(to right, #18181b, #27272a, #18181b);
+  border-bottom: 2px solid #8b6f47;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.8);
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.viewSwitcher {
+  display: flex;
+  background: rgba(24, 24, 27, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(139, 111, 71, 0.3);
+}
+
+.viewButton {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.25rem;
+
+  &:last-child {
+    margin-left: 0.5rem;
+    margin-right: 0;
+  }
+
+  &.active {
+    background: linear-gradient(to bottom, #d5ba94, #b99766);
+    color: #18181b;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  &.inactive {
+    background: linear-gradient(to bottom, #8b6f47, #6b5537);
+    color: #18181b;
+  }
+
+  &.resetAll {
+    background: linear-gradient(to bottom, #7b2527, #5f1c1d);
+    color: #ef3a43;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.5rem;
+      height: 1.5rem;
+      background: currentColor;
+      mask: url('../icons/reset.svg') no-repeat center;
+      mask-size: contain;
+    }
+
+    &:hover {
+      background: linear-gradient(to bottom, #8c2a2c, #702122);
+    }
+  }
+}

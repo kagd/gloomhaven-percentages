@@ -71,7 +71,6 @@ export interface StateActions {
 export interface DeckViewProps {
   deck: Deck;
   onDrawCard: (cardType: CardTypeName) => void;
-  onReturnCard: (cardIndex: number) => void;
   onResetDeck: () => void;
 }
 

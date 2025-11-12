@@ -1,0 +1,87 @@
+/* CardInput component-specific styles - Gloomhaven themed card selection */
+
+.gloomCard {
+  background: linear-gradient(145deg, #2d2419 0%, #1f1914 50%, #2d2419 100%);
+  border: 2px solid #8b6f47;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(139, 111, 71, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.gloomCard:hover {
+  border-color: #c5975a;
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(197, 151, 90, 0.4),
+    0 0 15px rgba(197, 151, 90, 0.2);
+  transform: translateY(-2px);
+}
+
+.gloomCardHeader {
+  background: linear-gradient(90deg, #8b6f47 0%, #6b5537 100%);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #5a4b3e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gloomCardName {
+  font-weight: 700;
+  color: #1a1611;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 2rem;
+}
+
+.gloomCardCount {
+  background: rgba(26, 22, 17, 0.8);
+  color: #c5975a;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.gloomCardBody {
+  padding: 0;
+  display: flex;
+}
+
+.gloomCardButton {
+  flex: 1;
+  padding: 1.5rem;
+  border: none;
+  background: linear-gradient(145deg, #3d3025 0%, #2d2419 100%);
+  color: #c5975a;
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.gloomCardButton:hover {
+  background: linear-gradient(145deg, #4a3b2e 0%, #3d3025 100%);
+  color: #deb770;
+}
+
+.gloomCardButton:active {
+  background: linear-gradient(145deg, #2a221a 0%, #1f1914 100%);
+}
+
+.gloomCardButton:disabled {
+  background: linear-gradient(145deg, #1f1914 0%, #0f0c08 100%);
+  color: #4a3b2e;
+  cursor: not-allowed;
+}
+
+.gloomCardButton:first-child {
+  border-right: 1px solid #8b6f47;
+}

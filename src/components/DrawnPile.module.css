@@ -1,0 +1,69 @@
+/* DrawnPile component-specific styles */
+
+.drawnPileTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #e8d5b7;
+}
+
+.drawnCardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.drawnCardButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.drawnCardButton:hover {
+  background: #f3f4f6;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cardIconContainer {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.cardIconContainer img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.cardName {
+  font-weight: 500;
+  color: #111827;
+}
+
+.returnInstruction {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.footerNote {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #8b7355;
+  text-align: center;
+}

@@ -7,7 +7,6 @@ import CardStack from './CardStack';
 const DeckView: React.FC<DeckViewProps> = ({
   deck,
   onDrawCard,
-  onReturnCard,
   onResetDeck,
 }) => {
   const deckTitle = deck.type === 'player' ? 'Player Deck' : 'Monster Deck';
@@ -17,20 +16,14 @@ const DeckView: React.FC<DeckViewProps> = ({
     .filter(
       ([_, count]) => count > 0 || deck.initialCards[_ as CardTypeName] > 0
     )
-    .map(([cardType, _]) => cardType as CardTypeName);
+    .map(([cardType]) => cardType as CardTypeName);
 
   return (
-    <div className="space-y-6">
+    <div className="mt-4">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between mb-4">
         <h2 className="text-2xl font-bold text-gray-900">{deckTitle}</h2>
         <div className="flex items-center gap-4">
-          <div className="text-sm text-gray-600">
-            <span className="font-medium">
-              {Object.values(deck.cards).reduce((sum, count) => sum + count, 0)}
-            </span>{' '}
-            cards remaining
-          </div>
           <button
             type="button"
             onClick={onResetDeck}

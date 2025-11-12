@@ -1,6 +1,7 @@
 import React from 'react';
 import { DrawnPileProps, CardTypeName } from '../models/types';
 import { getCardType } from '../models/cardTypes';
+import styles from './DrawnPile.module.css';
 
 const DrawnPile: React.FC<DrawnPileProps> = ({ drawnCards, onReturnCard }) => {
   if (drawnCards.length === 0) {
@@ -9,11 +10,11 @@ const DrawnPile: React.FC<DrawnPileProps> = ({ drawnCards, onReturnCard }) => {
 
   return (
     <div className="card">
-      <h3 className="text-lg font-semibold mb-4 text-gray-900">
+      <h3 className={styles.drawnPileTitle}>
         Drawn Cards ({drawnCards.length})
       </h3>
 
-      <div className="space-y-2">
+      <div className={styles.drawnCardsList}>
         {drawnCards.map((cardType, index) => {
           const cardDef = getCardType(cardType as CardTypeName);
 
@@ -22,29 +23,25 @@ const DrawnPile: React.FC<DrawnPileProps> = ({ drawnCards, onReturnCard }) => {
               key={`${cardType}-${index}`}
               type="button"
               onClick={() => onReturnCard(index)}
-              className="w-full flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
+              className={styles.drawnCardButton}
             >
-              <div className="flex items-center gap-3">
+              <div className={styles.cardInfo}>
                 <div
-                  className="w-8 h-8 flex items-center justify-center rounded"
-                  style={{ backgroundColor: cardDef.color, color: 'white' }}
+                  className={styles.cardIconContainer}
+                  style={{ backgroundColor: cardDef.color }}
                 >
-                  <img
-                    src={cardDef.icon}
-                    alt={cardDef.name}
-                    className="w-5 h-5"
-                  />
+                  <img src={cardDef.icon} alt={cardDef.name} />
                 </div>
-                <span className="font-medium">{cardDef.name}</span>
+                <span className={styles.cardName}>{cardDef.name}</span>
               </div>
 
-              <div className="text-sm text-gray-600">Click to return</div>
+              <div className={styles.returnInstruction}>Click to return</div>
             </button>
           );
         })}
       </div>
 
-      <div className="mt-4 text-sm text-gray-500 text-center">
+      <div className={styles.footerNote}>
         Click any card to return it to the deck
       </div>
     </div>
