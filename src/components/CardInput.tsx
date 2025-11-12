@@ -15,6 +15,7 @@ const CardInput: React.FC<CardInputProps> = ({
   onCountChange,
 }) => {
   const cardDef = getCardType(cardType);
+  const neutralColor = '#a68b5b'; // Consistent neutral color for non-icon elements
 
   const handleIncrement = () => {
     onCountChange(cardType, count + 1);
@@ -25,17 +26,27 @@ const CardInput: React.FC<CardInputProps> = ({
   };
 
   return (
-    <div className={styles.gloomCard}>
-      <div className={styles.gloomCardHeader}>
-        <span className={styles.gloomCardName}>{cardDef.name}</span>
-        <span className={styles.gloomCardCount}>{count}</span>
+    <div className={styles.cardInput} style={{ borderColor: neutralColor }}>
+      <div className={styles.cardHeader}>
+        <div className={styles.cardInfo}>
+          <div
+            className={styles.cardIcon}
+            style={{ backgroundColor: cardDef.color }}
+          >
+            <img src={cardDef.icon} alt={cardDef.name} />
+          </div>
+          <div>
+            <h3 className={styles.cardTitle}>{cardDef.name}</h3>
+          </div>
+        </div>
+        <div className={styles.cardCount}>{count} cards</div>
       </div>
 
-      <div className={styles.gloomCardBody}>
+      <div className={styles.cardBody}>
         <button
           type="button"
           onClick={handleDecrement}
-          className={styles.gloomCardButton}
+          className={styles.cardButton}
           disabled={count === 0}
         >
           −
@@ -44,7 +55,7 @@ const CardInput: React.FC<CardInputProps> = ({
         <button
           type="button"
           onClick={handleIncrement}
-          className={styles.gloomCardButton}
+          className={styles.cardButton}
         >
           +
         </button>

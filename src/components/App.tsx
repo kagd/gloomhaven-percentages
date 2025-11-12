@@ -36,6 +36,12 @@ const App: React.FC = () => {
     resetDeck(currentView);
   };
 
+  const onResetAll = () => {
+    if (window.confirm('Reset all decks?')) {
+      resetAll();
+    }
+  };
+
   if (!isInitialized) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
@@ -51,7 +57,7 @@ const App: React.FC = () => {
       <Navigation
         currentView={currentView}
         onSwitchView={switchView}
-        onResetAll={resetAll}
+        onResetAll={onResetAll}
       />
 
       <main className="flex-1 container py-6">

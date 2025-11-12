@@ -2,36 +2,47 @@
 
 .tabNavigation {
   display: flex;
+  justify-content: center;
   margin-bottom: 1.5rem;
 }
 
+.tabSwitcher {
+  display: flex;
+  background: rgba(24, 24, 27, 0.5);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(139, 111, 71, 0.3);
+}
+
 .tabButton {
-  flex: 1;
-  padding: 1rem 1.5rem;
-  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
   font-weight: 700;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 4px solid transparent;
-  transition: all 0.3s ease;
   background: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
   cursor: pointer;
-}
+  margin-right: 0.25rem;
 
-.tabButton.active {
-  border-bottom-color: #c5975a;
-  color: #c5975a;
-  background: linear-gradient(to bottom, transparent, rgba(197, 151, 90, 0.2));
-}
+  &:last-child {
+    margin-right: 0;
+  }
 
-.tabButton.inactive {
-  color: #8b7355;
-}
+  &.active {
+    background: linear-gradient(to bottom, #d5ba94, #b99766);
+    color: #18181b;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
 
-.tabButton.inactive:hover {
-  color: #c5975a;
-  background: linear-gradient(to bottom, transparent, rgba(197, 151, 90, 0.1));
+  &.inactive {
+    background: linear-gradient(to bottom, #8b6f47, #6b5537);
+    color: #18181b;
+
+    &:hover {
+      background: linear-gradient(to bottom, #a07c54, #7a5d41);
+    }
+  }
 }

@@ -187,3 +187,14 @@ export const cardTypeCategories = {
     CardTypeName.Dark,
   ],
 };
+
+// Default monster deck configuration
+export const getInitialMonsterDeck = (): Partial<Record<CardTypeName, number>> => ({
+  [CardTypeName.PlusZero]: 6,
+  [CardTypeName.PlusOne]: 5,
+  [CardTypeName.MinusOne]: 5,
+  [CardTypeName.PlusTwo]: 1,
+  [CardTypeName.MinusTwo]: 1,
+  [CardTypeName.Miss]: 1,
+  [CardTypeName.Double]: 1,
+});
