@@ -1,0 +1,26 @@
+/* CardCategory component-specific styles */
+
+.cardCategory {
+  margin-bottom: 2rem;
+}
+
+.categoryTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #c5975a;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.categoryCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .categoryCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
